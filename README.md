@@ -26,7 +26,31 @@ To classify individual MNIST digits, we developed a custom Convolutional Neural 
 <img width="1156" height="683" alt="Screenshot from 2026-01-15 21-16-45" src="https://github.com/user-attachments/assets/74538e37-3174-4bd0-91ab-e9c9239f5881" />
 
 
-**Statistics**
+### Results
+
+#### Training Curve
+
+<img width="640" height="480" alt="training" src="https://github.com/user-attachments/assets/e8731878-76b8-476a-b051-cac6405b70d1" />
+
+*Figure 1: Training and test loss over epochs. The best checkpoint is marked in green.*
+
+#### Performance Metrics
+
+| Metric | Value |
+|--------|-------|
+| **Test Accuracy** | 0.9922 |
+| **Macro Precision** | 0.9921 |
+| **Macro Recall** | 0.9922 |
+| **Macro F1-Score** | 0.9921 |
+
+#### Confusion Matrix
+
+<img width="640" height="480" alt="confusion_matrix" src="https://github.com/user-attachments/assets/eec9b919-ca89-4c82-9974-df6ec4f9b3e3" />
+
+*Figure 2: Confusion Matrix showing the model's predictions vs ground truth.*
+
+#### Per-Class Metrics
+
 | Digit | Precision | Recall | F1-Score |
 | --- | --- | --- | --- |
 | 0 | 0.9910 | 0.9980 | 0.9944 |
@@ -39,14 +63,6 @@ To classify individual MNIST digits, we developed a custom Convolutional Neural 
 | 7 | 0.9913 | 0.9951 | 0.9932 |
 | 8 | 0.9918 | 0.9938 | 0.9928 |
 | 9 | 0.9939 | 0.9752 | 0.9845 |
-| Overall | 0.9921 | 0.9922 | 0.9921 |
-
-Overall accuracy: 0.9922
-
-<img width="640" height="480" alt="confusion_matrix" src="https://github.com/user-attachments/assets/eec9b919-ca89-4c82-9974-df6ec4f9b3e3" />
-
-<img width="640" height="480" alt="training" src="https://github.com/user-attachments/assets/e8731878-76b8-476a-b051-cac6405b70d1" />
-
 
 ---
 
