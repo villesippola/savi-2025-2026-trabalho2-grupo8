@@ -60,49 +60,12 @@ We generated a "Scene" dataset to simulate object detection tasks. The generatio
 
 ### Task 3: Sliding Window Detection
 
-**Objetivo:** Utilizar o classificador treinado na Tarefa 1 para encontrar dígitos nas "cenas" da Tarefa 2, sem re-treinar a rede.
 
-1.  **Abordagem:** Implemente uma técnica de *Sliding Window* (Janela Deslizante).
-    *   Percorra a imagem de entrada (do dataset da Tarefa 2) com janelas de tamanho 28x28 (ou redimensionadas).
-    *   Passe cada recorte (crop) pela rede treinada na Tarefa 1.
-2.  **Thresholding:** Defina um limiar de confiança (baseado na saída *softmax*) para decidir se um recorte contém um dígito ou é fundo (background).
-    *   *Nota:* Como a rede da Tarefa 1 nunca viu "fundo", ela tentará classificar tudo como um dígito. Terá de lidar com este problema (e.g., analisando a entropia da saída ou a magnitude dos logits).
-3.  **Visualização:** Desenhe as caixas delimitadoras (bounding boxes) onde a rede detetou dígitos com alta confiança sobre a imagem original.
-4.  **Avaliação Qualitativa:** Discuta no README a eficiência desta abordagem (tempo de execução) e os problemas encontrados (falsos positivos, precisão da localização).
-
-**Deliverable:** Código Python **main_sliding_window.py**. Inclua exemplos de imagens com as deteções no README.
 
 ---
 
 ### Task 4: Integrated Detector and Classifier
 
-**Objetivo:** Alterar a arquitetura ou a estratégia de treino para realizar a deteção e classificação de forma mais eficiente e precisa.
 
-1.  **Nova Abordagem:** Desenvolva uma solução que supere as limitações da janela deslizante. Algumas sugestões:
-    *   **Conversão para FCN:** Converta as camadas `Linear` (fully connected) da sua CNN em camadas Convolucionais (Fully Convolutional Network). Isso permite passar a imagem inteira de uma vez e obter um mapa de calor de ativações.
-    *   **Regressão de Bounding Box:** Altere a saída da rede para prever também as coordenadas `(x, y, w, h)` além da classe (abordagem simplificada tipo YOLO/R-CNN).
-    *   **Region Proposals (RPN)**: Implemente um mecanismo de "Propostas de Região". Pode ser uma sub-rede dedicada (Region Proposal Network) que aprende a sugerir onde existem objetos antes de classificar (abordagem Two-Stage similar à Faster R-CNN), ou utilizar algoritmos rápidos de segmentação para gerar candidatos.
-    *   **Re-treino:** Utilize o dataset da Tarefa 2 para treinar esta nova rede, permitindo que ela aprenda a distinguir "fundo" de "dígito".
-2.  **Implementação:** Crie o treino e a inferência para esta nova arquitetura.
-3.  **Comparação:** Compare os resultados (visuais e, se possível, de métricas) com a abordagem da Tarefa 3. A nova abordagem é mais rápida? É mais precisa?
-
-**Deliverable:** Código Python **main_improved_detection.py**. Relatório detalhando as alterações arquiteturais feitas.
 
 ---
-
-## Entrega
-
-Para cada tarefa, deverá submeter:
-*   O código Python (`.py`) claro, comentado e funcional.
-*   A entrega é feita com um repositório chamado `savi-2025-2026-trabalho2-grupoX`, em que X é o número do grupo. 
-*   O `README.md` deve ser o relatório principal, contendo:
-    *   **Metodologia:** Explicação das arquiteturas de rede escolhidas (desenhos/diagramas são valorizados).
-    *   **Resultados T1:** Matrizes de confusão e tabela de métricas (F1, Precision, Recall).
-    *   **Análise de Dados T2:** Estatísticas e exemplos do dataset gerado.
-    *   **Deteção T3 vs T4:** Comparação visual e discussão sobre performance (tempo vs qualidade) entre a janela deslizante e a abordagem melhorada.
-    *   **Dificuldades:** Descrição dos principais desafios e soluções encontradas.
-
-## Dicas e Sugestões
-
-*   **GPU:** O treino com o dataset completo e a geração de dados podem ser pesados. Use a GPU (CUDA) se disponível. Verifique sempre com `device = torch.device("cuda" if torch.cuda.is_available() else "cpu")`.
-*   **Overfitting:** Se a accuracy de treino for muito superior à de teste na Tarefa 1, o modelo está em *overfitting*. Aumente o Dropout ou reduza a complexidade do modelo.
