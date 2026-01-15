@@ -32,19 +32,17 @@ Make sure you have the following libraries installed in your Python environment 
 
 ### Task 1: Optimized CNN Classifier (Full MNIST)
 
-**Objetivo:** Melhorar o classificador base desenvolvido nas aulas, utilizando o dataset MNIST completo e arquiteturas mais robustas.
+To classify individual MNIST digits, we developed a custom Convolutional Neural Network (CNN) using PyTorch.
 
-1.  **Código Base:** Parta do código desenvolvido nas aulas (`main.py`, `model.py`, `trainer.py`).
-2.  **Dataset Completo:** Ao contrário das aulas (onde usámos uma percentagem reduzida), configure o `dataset.py` para utilizar a totalidade dos dados de treino (60.000 imagens) e teste (10.000 imagens).
-3.  **Melhoria da Arquitetura:**
-    *   Altere o `model.py` para criar uma nova classe (e.g., `ModelBetterCNN`).
-    *   Experimente adicionar mais camadas convolucionais, camadas de *Dropout* para regularização, e *Batch Normalization*.
-    *   O objetivo é maximizar a accuracy no conjunto de teste.
-4.  **Avaliação Detalhada:**
-    *   Implemente o cálculo e visualização da **Matriz de Confusão**.
-    *   Calcule e apresente as métricas de **Precision**, **Recall** e **F1-Score** (por classe e a média global/macro). Pode utilizar o `sklearn.metrics`.
-
-**Deliverable:** Código Python **main_classification.py** e módulos associados. O `README` deve conter a tabela de resultados e a imagem da matriz de confusão.
+* **Architecture:** The model (`ModelBetterCNN`) improves upon the baseline by increasing network depth and adding regularization mechanisms.
+    * **Input:** 28x28 Grayscale images.
+    * **Layers:** We utilized 3 Convolutional blocks. Each block consists of:
+        * `Conv2d`: Feature extraction.
+        * `BatchNorm2d`: To stabilize training and allow higher learning rates.
+        * `ReLU`: Non-linear activation.
+        * `MaxPool2d`: To reduce spatial dimensions and computation.
+    * **Regularization:** `Dropout` layers were added before the fully connected layers to prevent overfitting.
+    * **Loss Function:** `MSELoss` (with One-Hot Encoded labels) / `CrossEntropyLoss`.
 
 | Digit | Precision | Recall | F1-Score |
 | --- | --- | --- | --- |
@@ -62,7 +60,6 @@ Make sure you have the following libraries installed in your Python environment 
 
 Overall accuracy: 0.9922
 
-Confusion Matrix
 <img width="640" height="480" alt="confusion_matrix" src="https://github.com/user-attachments/assets/eec9b919-ca89-4c82-9974-df6ec4f9b3e3" />
 
 <img width="640" height="480" alt="training" src="https://github.com/user-attachments/assets/e8731878-76b8-476a-b051-cac6405b70d1" />
