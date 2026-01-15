@@ -79,6 +79,15 @@ We generated a "Scene" dataset to simulate object detection tasks. The generatio
 
 ### Visualizations
 
+#### Version B: Single Digit, Scale Variation
+
+<img width="2953" height="2984" alt="mosaic_vB" src="https://github.com/user-attachments/assets/a17b8f27-4669-4e94-855e-23ecdadee3a0" />
+
+#### Version D: Multiple Digits, Scale Variation
+
+<img width="2953" height="2984" alt="mosaic_vD" src="https://github.com/user-attachments/assets/b2e25455-19c6-42c0-9171-a04bb9c23010" />
+
+
 ---
 
 ### Task 3: Sliding Window Detection
