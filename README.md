@@ -22,7 +22,7 @@ To classify individual MNIST digits, we developed a custom Convolutional Neural 
         * `MaxPool2d`: To reduce spatial dimensions and computation.
     * **Regularization:** `Dropout` layers were added before the fully connected layers to prevent overfitting.
 
-### Layers of the model
+#### Layers of the model
 <img width="1156" height="683" alt="Screenshot from 2026-01-15 21-16-45" src="https://github.com/user-attachments/assets/74538e37-3174-4bd0-91ab-e9c9239f5881" />
 
 
@@ -70,11 +70,14 @@ To classify individual MNIST digits, we developed a custom Convolutional Neural 
 
 We generated a "Scene" dataset to simulate object detection tasks. The generation script (`generate_data.py`) places MNIST digits onto a larger canvas (128x128) while preventing overlap.
 
+* **Total Images:** 60,000 (Train) / 10,000 (Test)
 * **Variability:** We created 4 dataset versions to test robustness:
     * **Type A:** 1 Digit, Fixed Scale (28x28).
     * **Type B:** 1 Digit, Random Scale (22x22 to 36x36).
     * **Type C:** 3-5 Digits, Fixed Scale.
     * **Type D:** 3-5 Digits, Random Scale.
+
+### Visualizations
 
 ---
 
