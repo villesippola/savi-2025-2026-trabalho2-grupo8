@@ -62,6 +62,12 @@ Make sure you have the following libraries installed in your Python environment 
 
 Overall accuracy: 0.9922
 
+Confusion Matrix
+<img width="640" height="480" alt="confusion_matrix" src="https://github.com/user-attachments/assets/eec9b919-ca89-4c82-9974-df6ec4f9b3e3" />
+
+<img width="640" height="480" alt="training" src="https://github.com/user-attachments/assets/e8731878-76b8-476a-b051-cac6405b70d1" />
+
+
 ---
 
 ### Task 2: Generating a Dataset of "Scenes" with Digits
