@@ -1,7 +1,7 @@
 # Practical Work 2 - SAVI
 ==============
 
-Group X
+Group 8
 
 2025-2026
 
