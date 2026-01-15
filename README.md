@@ -69,24 +69,13 @@ Overall accuracy: 0.9922
 
 ### Task 2: Generating a Dataset of "Scenes" with Digits
 
-**Objetivo:** Criar um dataset mais complexo onde os dígitos não estão centrados e podem existir múltiplos dígitos numa imagem (simulando um cenário de deteção de objetos).
+We generated a "Scene" dataset to simulate object detection tasks. The generation script (`generate_data.py`) places MNIST digits onto a larger canvas (128x128) while preventing overlap.
 
-
-1.  Inspirado na ferramenta [MNIST-ObjectDetection](https://github.com/hukkelas/MNIST-ObjectDetection) desenvolva código para gerar digitos em imagens maiores
-2.  **Modificações:**: **MNIST-ObjectDetection** não tem algumas funcionalidades desejadas. Em primeiro ligar o link para download do dataset está incorreto. Agora é "https://ossci-datasets.s3.amazonaws.com/mnist/". Depois pretende-se adicionar uma forma de evitar que as imagens geradas tenham digitos sobrepostos. Pretende-se também que os digitos tenham escalas pouco variadas (e.g. digitos com tamanho de 22x22 a 36x36).
-2.  **Geração:**
-    *   Gere um dataset com dimensões compatíveis com o MNIST original (ex: 60k treino, 10k teste) ou uma dimensão representativa que o seu hardware suporte bem.
-    *   As imagens geradas devem ter dimensões maiores (e.g., 100x100 ou 128x128) e conter dígitos espalhados.
-3.  **Experimentação:** Gere pelo menos duas versões do dataset para análise:
-    *   *Versão A:* Apenas 1 dígito por imagem (mas em posição aleatória).
-    *   *Versão B:* Apenas 1 dígito por imagem (mas em posição aleatória e com diferenças de escala).
-    *   *Versão C:* Múltiplos dígitos por imagem (e.g., entre 3 a 5 dígitos).
-    *   *Versão D:* Múltiplos dígitos por imagem (e.g., entre 3 a 5 dígitos com diferenças de escala).
-4.  **Análise e Visualização:**
-    *   Crie um script para visualizar mosaicos de imagens geradas com as respetivas "bounding boxes" (ground truth).
-    *   Apresente estatísticas: distribuição de classes nos novos datasets, histograma de número de dígitos por imagem, tamanho médio dos dígitos, etc.
-
-**Deliverable:** Script de geração ou descrição do comando utilizado. Script **main_dataset_stats.py** que gera as visualizações e estatísticas.
+* **Variability:** We created 4 dataset versions to test robustness:
+    * **Type A:** 1 Digit, Fixed Scale (28x28).
+    * **Type B:** 1 Digit, Random Scale (22x22 to 36x36).
+    * **Type C:** 3-5 Digits, Fixed Scale.
+    * **Type D:** 3-5 Digits, Random Scale.
 
 ---
 
