@@ -34,14 +34,17 @@ To classify individual MNIST digits, we developed a custom Convolutional Neural 
 
 *Figure 1: Training and test loss over epochs. The best checkpoint is marked in green.*
 
-#### Performance Metrics
+#### Performance Metrics: improved model vs model from class
 
-| Metric | Value |
-|--------|-------|
-| **Test Accuracy** | 0.9922 |
-| **Macro Precision** | 0.9921 |
-| **Macro Recall** | 0.9922 |
-| **Macro F1-Score** | 0.9921 |
+| Metric | ModelBetterCNN | ModelConvNet |
+|--------|-------|-------|
+| **Test Accuracy** | 0.9922 | 0.9795 |
+| **Macro Precision** | 0.9921 | 0.9797 |
+| **Macro Recall** | 0.9922 | 0.9790 |
+| **Macro F1-Score** | 0.9921 | 0.9793 |
+| **Total Params** | 1,701,578 | 421,642 |
+
+Compared to the model developed in class (`ModelConvNet`), the new improved model (`ModelBetterCNN`) is much more accurate. However, the number of trainable parameters increases by about 4 times, making training much more time-consuming.
 
 #### Confusion Matrix
 
@@ -49,7 +52,7 @@ To classify individual MNIST digits, we developed a custom Convolutional Neural 
 
 *Figure 2: Confusion Matrix showing the model's predictions vs ground truth.*
 
-#### Per-Class Metrics
+#### Per-Class Metrics from improved model
 
 | Digit | Precision | Recall | F1-Score |
 | --- | --- | --- | --- |
