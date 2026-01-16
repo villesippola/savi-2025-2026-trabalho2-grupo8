@@ -34,6 +34,8 @@ To classify individual MNIST digits, we developed a custom Convolutional Neural 
 
 *Figure 1: Training and test loss over epochs. The best checkpoint is marked in green.*
 
+The graph shows that the Train line does not fall below the Test line and the Test line does not rise above the Train line. `Dropout` layer successfully prevents overfitting.
+
 #### Performance Metrics: improved model vs model from class
 
 | Metric | ModelBetterCNN | ModelConvNet |
